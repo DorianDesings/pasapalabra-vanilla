@@ -1,27 +1,66 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 }
 
 ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+	list-style: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 body {
-  margin: 0;
-  /* background-image: url(../assets/images/sleep-cat.jpeg); */
+	margin: 0;
+	background-color: #111;
+	color: aliceblue;
+	font-family: sans-serif;
+}
+
+.main {
+	height: 100vh;
+}
+
+.letters-container {
+	position: relative;
+	top: 4rem;
+}
+
+.letter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	border: 1px solid;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+}
+
+.letter--correct {
+	background-color: green;
+}
+
+.letter--incorrect {
+	background-color: crimson;
+}
+
+.letter--jumped {
+	background-color: orange;
+}
+
+.buttons {
+	position: absolute;
+	bottom: 10rem;
 }

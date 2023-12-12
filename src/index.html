@@ -1,16 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <h1>Hola</h1>
-    <!-- <img src="./assets/images/cute-cat.webp" alt="" /> -->
-    <script type="module" src="./js/index.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Vite App</title>
+	</head>
+	<body>
+		<main class="main">
+			<div id="letters-container" class="letters-container">
+				<div class="letter" data-letter="a">A</div>
+				<div class="letter" data-letter="b">B</div>
+				<div class="letter" data-letter="c">C</div>
+				<div class="letter" data-letter="d">D</div>
+				<div class="letter" data-letter="e">E</div>
+				<div class="letter" data-letter="f">F</div>
+				<div class="letter" data-letter="g">G</div>
+				<div class="letter" data-letter="h">H</div>
+				<div class="letter" data-letter="i">I</div>
+				<div class="letter" data-letter="j">J</div>
+				<div class="letter" data-letter="k">K</div>
+				<div class="letter" data-letter="l">L</div>
+				<div class="letter" data-letter="m">M</div>
+				<div class="letter" data-letter="n">N</div>
+				<div class="letter" data-letter="ñ">Ñ</div>
+				<div class="letter" data-letter="o">O</div>
+				<div class="letter" data-letter="p">P</div>
+				<div class="letter" data-letter="q">Q</div>
+				<div class="letter" data-letter="r">R</div>
+				<div class="letter" data-letter="s">S</div>
+				<div class="letter" data-letter="t">T</div>
+				<div class="letter" data-letter="u">U</div>
+				<div class="letter" data-letter="v">V</div>
+				<div class="letter" data-letter="w">W</div>
+				<div class="letter" data-letter="x">X</div>
+				<div class="letter" data-letter="y">Y</div>
+				<div class="letter" data-letter="z">Z</div>
+			</div>
+			<div id="buttons" class="buttons">
+				<button data-type="incorrect">Incorrect</button>
+				<button data-type="jump">Jump</button>
+				<button data-type="correct">Correct</button>
+			</div>
+			<p id="question"></p>
+		</main>
+		<script type="module" src="./js/index.js"></script>
+	</body>
 </html>
