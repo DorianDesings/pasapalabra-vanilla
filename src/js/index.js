@@ -9,8 +9,8 @@ const totalLetters = letters.length;
 const angleIncrement = (2 * Math.PI) / totalLetters;
 
 const jumpedQuestions = [];
+let arrayOfQuestions = QUESTIONS;
 let questionCounter = 0;
-let isDonutComplete = false;
 let currentLetter;
 
 letters.forEach((letter, index) => {
@@ -30,21 +30,29 @@ const printQuestion = questionToPrint => {
 };
 
 const checkCounter = () => {
-	if (questionCounter >= QUESTIONS.length - 1) {
+	if (questionCounter >= arrayOfQuestions.length - 1) {
 		questionCounter = 0;
-		isDonutComplete = true;
+		arrayOfQuestions = jumpedQuestions;
 	} else {
 		questionCounter++;
 	}
 
-	if (isDonutComplete) {
-		printQuestion(jumpedQuestions);
-	} else {
-		printQuestion(QUESTIONS);
-	}
+	printQuestion(arrayOfQuestions);
+};
+
+const deleteJumpedQuestion = () => {
+	if (arrayOfQuestions === QUESTIONS) return;
+
+	const indexOfLetter = jumpedQuestions.findIndex(
+		question => question.id === currentLetter
+	);
+
+	jumpedQuestions.splice(indexOfLetter, 1);
+	questionCounter--;
 };
 
 const checkAnswer = event => {
+	console.log(arrayOfQuestions);
 	const type = event.target.dataset.type;
 	if (!type) return;
 	const letterElement = document.querySelector(
@@ -53,16 +61,20 @@ const checkAnswer = event => {
 	letterElement.classList.remove('letter--jumped');
 	if (type === 'correct') {
 		letterElement.classList.add('letter--correct');
+		deleteJumpedQuestion();
 	} else if (type === 'incorrect') {
 		letterElement.classList.add('letter--incorrect');
-	} else {
+		deleteJumpedQuestion();
+	} else if (arrayOfQuestions === QUESTIONS) {
 		jumpedQuestions.push(QUESTIONS[questionCounter]);
+		letterElement.classList.add('letter--jumped');
+	} else {
 		letterElement.classList.add('letter--jumped');
 	}
 
 	checkCounter();
 };
 
-printQuestion(QUESTIONS);
+printQuestion(arrayOfQuestions);
 
 buttons.addEventListener('click', checkAnswer);
